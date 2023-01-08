@@ -1,0 +1,525 @@
+@import "../variables/variables";
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+//shared
+.main-text-color{
+    color: $main-color !important;
+}
+
+header{
+    .header-background{
+        background-color: $background-color;
+        width: 100% !important;
+        .header-transition{
+            opacity: 0;
+            transition: opacity 1s
+        }
+        .header-ul{
+            font-size:20px;
+            
+        }
+        ul{
+            li{
+                list-style: none;
+                a{
+                    text-decoration: none;
+                    color:$text-color;
+                    &:hover{
+                       color: $text-color-hover;
+                    }
+                }
+            }
+        }
+
+        // Catalog Categories
+        #catalog-nav{
+            position: relative;
+            #catalog-categories{
+                position: absolute;
+                top: 10;
+                left: 0;
+                background-color: $background-color;
+                z-index: -200;
+                opacity: 0;
+                width: 200px;
+                height: 100px;
+                overflow-y: auto;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                &::-webkit-scrollbar {
+                    width: 10px;
+                  }
+                  
+                  /* Track */
+                &::-webkit-scrollbar-track {
+                    box-shadow: inset 0 0 5px grey; 
+                    border-radius: 10px;
+                  }
+                   
+                  /* Handle */
+                &::-webkit-scrollbar-thumb {
+                    background: #fff; 
+                    border-radius: 10px;
+                  }
+                  
+                  /* Handle on hover */
+                &::-webkit-scrollbar-thumb:hover {
+                    background: #fff; 
+                  }
+                padding-left: 0 !important;
+                
+            }
+            .catalog-hover{
+                z-index: 999 !important;
+                opacity: 1 !important;
+            }
+        }
+        .header-info{
+            font-size: 24px;
+            img{
+                width: 60px;
+                height: 50px;
+            }
+            &:first-child{
+                color: $main-color;
+            }
+            &:nth-child(2){
+                color: $text-color;
+            }
+        }
+        .mobile-logo{
+            font-size: 20px;
+            img{
+                width: 60px;
+                height: 50px;
+            }
+            color: $main-color;
+        }
+    }
+    .mobile-navbar{width: 100% !important;}
+    
+}
+main{
+    .first-part{
+        .main-text-bold-color{
+            color: $main-color;
+            font-weight: bold;
+        }
+        background-color: rgba(51, 51, 51, 0.54);
+        position: relative;
+        height: 30%;
+        color: #fff;
+        .background-image{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: url(../img/Capture.PNG);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        }
+        .first-part-text{
+            transform: translateX(-100px);
+            transition: all 2s;
+            opacity: 0;
+            a{
+                padding: 10px;
+                font-weight: bold;
+                border: 1.5px solid $main-color;
+                border-radius: 20px;
+                color: $text-color;
+                text-decoration: none;
+            }
+        }
+    }
+    .secondary-part{
+        .main-text-bold-color{
+            color: $main-color;
+            font-weight: bold;
+        }
+        opacity: 0;
+        transition: all 2s;
+        .cards{
+            .card{
+                position: relative;
+                height: 180px;
+                transition: all 0.5s;
+                background-color: rgba(51, 51, 51, 0.54);
+                &:hover{
+                background-color: rgba(51, 51, 51, 0.2);
+                cursor: pointer;
+                .card-text{
+                   color: #fff;
+                }
+                .card-text-secondary{
+                    color: $main-color !important;
+                }
+                }
+                .card-background-first{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -2;
+                    background: url(../img/istockphoto-1316669671-1024x1024.jpg);
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                }
+                .card-background-second{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -2;
+                    background: url(../img/istockphoto-1218608133-612x612.jpg);
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                }
+                .card-background-third{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -2;
+                    background: url(../img/photo-1517245386807-bb43f82c33c4.avif);
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                }
+                .card-background-forth{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -2;
+                    background: url(../img/factory-floor-overview.jpg);
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                }
+                .card-text{
+                    font-weight: bold;
+                    z-index: 1;
+                    color: $main-color;
+                    transition: all 0.5s;
+                }
+                .card-text-secondary{
+                    font-weight: bold;
+                    z-index: 1;
+                    color: #fff !important;
+                    transition: all 0.5s;
+                    &:hover{
+                        color: $main-color !important;
+                    }
+                }
+            }
+        }
+        .secondary-texts{
+            color: #333;
+        }
+    }
+    .third-part{
+        background-color: $background-color;
+        width: 100% !important;
+        .sales{
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 2s;
+            color: rgb(213, 213, 213);
+            .sale-component-active{
+                font-weight: bold;
+                border-bottom: 2px solid $main-color !important;
+                color: #fff !important;
+            }
+            .sale-component{
+                cursor: pointer;
+                border-bottom: 2px solid rgb(157, 157, 157);
+            }
+        }
+        img{
+            width: 80%;
+        }
+        .third-cards{
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 2s;
+            .third-card{
+                a{
+                color: rgb(157, 157, 157);
+                text-decoration: none;
+                }
+                img{
+                    height: 150px;
+                    width: 80%;
+                    opacity: 0.7;
+                    transition: all 0.5s;
+                }
+                transition: all 0.4s;
+                .third-card-in{
+                    background-color: $card-background-color;
+                    transition: all 0.4s;
+                }
+                &:hover{
+                a{
+                    color: #fff;
+                }
+                img{
+                    opacity: 1;
+                }
+                .third-card-in{
+                    background-color: #878787;
+                }
+                }
+            }
+            .third-card-more{
+                a{
+                    text-decoration: none;
+                    padding: 10px;
+                    border: 1px solid $main-color;
+                    border-radius: 20px;
+                    color: $main-color;
+                }
+            }
+        }
+    }
+    .forth-part{
+        transform: translateX(-20px);
+        opacity: 0;
+        transition: all 2s;
+        .forth-part-img{
+            img{
+                width: 100%;
+                height: 350px;
+            }
+        }
+        a{
+            color: $main-color;
+        }
+    }
+    .fifth-part{
+        background-color: $background-color;
+        h3{
+            color:#fff;
+        }
+        .fifth-card{
+            img{
+                width: 80%;
+            }
+                    background-color: rgb(147, 74, 0);
+        }
+    }
+    .sixth-part{
+        background-color: $background-color;
+        color: #fff;
+        .transition{
+            transform: translateX(20px);
+            opacity: 0;
+            transition: all 2s;
+        }
+        .input-field{
+            input{
+                background-color: $background-color;
+                border:0;
+                &:focus-visible{
+                    outline: none;
+                }
+            }
+            border-bottom: 2px solid $main-color;
+        }
+        .button-field{
+            button{
+                border-radius: 20px;
+                padding: 3px 30px;
+                background-color: $main-color;
+                color: #fff;
+                border:none;
+            }
+        }
+        
+    }
+    .seventh-part{
+        background-color: $background-color;
+        color: #fff;
+        .sales{
+            .sale-component-active{
+                border-bottom: 2px solid $main-color !important;
+            }
+            .sale-component{
+                border-bottom: 2px solid rgb(157, 157, 157);
+            }
+        }
+        .seventh-cards{
+            .seventh-card{
+                position: relative;
+                .sale-price{
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    background-color: $main-color;
+                    border-radius: 50%;
+                    padding: 5px;
+                }
+                img{
+                    width: 80%;
+                }
+                        background-color: rgb(147, 74, 0);
+            }
+        }
+    }
+}
+footer{
+    .footer-transition{
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 2s;
+    }
+    .footer-contact{
+        .phone-number{
+            border-bottom: 1px solid $main-color;
+        }
+        input[type=number]{
+            border:0;
+            &:focus-visible{
+                outline: none;
+            }
+        }
+        .checkbox-text{
+            border-bottom: 1px solid $main-color;
+        }
+        button{
+            background-color: $main-color;
+            border: none;
+            padding: 5px 20px;
+            border-radius: 30px;
+
+        }
+    }
+    .footer-nav{
+        background-color: $background-color;
+        color:#fff;
+        ul{
+            padding-left: 0;
+            li{
+                list-style: none;
+                a{
+                    text-decoration: none;
+                    color:#fff;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 518px) {
+    .first-part{
+        background-color: rgba(51, 51, 51, 0.54);
+        position: relative;
+        height: 30%;
+        color: #fff;
+        .background-image{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: url(../img/Capture.PNG);
+        background-repeat: no-repeat;
+        background-size: auto !important;
+    } 
+}
+    .secondary-part{
+        .main-text-bold-color{
+            color: $main-color;
+            font-weight: bold;
+        }
+        opacity: 0;
+        transition: all 2s;
+        .cards{
+            .card{
+                position: relative;
+                height: 180px;
+                transition: all 0.5s;
+                background-color: rgba(51, 51, 51, 0.54);
+                &:hover{
+                background-color: rgba(51, 51, 51, 0.2);
+                cursor: pointer;
+                .card-text{
+                   color: #fff;
+                }
+                .card-text-secondary{
+                    color: $main-color !important;
+                }
+                }
+                .card-background-first{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -2;
+                    background: url(../img/istockphoto-1316669671-1024x1024.jpg);
+                    background-repeat: no-repeat;
+                    background-size: auto !important;
+                }
+                .card-background-second{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -2;
+                    background: url(../img/istockphoto-1218608133-612x612.jpg);
+                    background-repeat: no-repeat;
+                    background-size: auto !important;
+                }
+                .card-background-third{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -2;
+                    background: url(../img/photo-1517245386807-bb43f82c33c4.avif);
+                    background-repeat: no-repeat;
+                    background-size: auto !important;
+                }
+                .card-background-forth{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -2;
+                    background: url(../img/factory-floor-overview.jpg);
+                    background-repeat: no-repeat;
+                    background-size: 100% auto !important;
+                }
+                .card-text{
+                    font-weight: bold;
+                    z-index: 1;
+                    font-size: 11px !important;
+                    color: $main-color;
+                    transition: all 0.5s;
+                }
+                .card-text-secondary{
+                    font-weight: bold;
+                    z-index: 1;
+                    color: #fff !important;
+                    transition: all 0.5s;
+                    &:hover{
+                        color: $main-color !important;
+                    }
+                }
+            }
+        }
+        .secondary-texts{
+            color: #333;
+        }
+    }
+  }

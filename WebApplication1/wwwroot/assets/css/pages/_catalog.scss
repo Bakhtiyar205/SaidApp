@@ -1,0 +1,41 @@
+@import "../variables/variables";
+
+.catalogs{
+    a{
+        color: #333;
+        text-decoration: none;
+        .catalog{
+            position: relative;
+            height: 180px;
+            .catalog-background-img{
+                position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -2;
+                    background: url(../img/1-Бамбук_category_covers.jpg);
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+            }
+            .catalog-info-text{
+                z-index: 1;
+                opacity: 0;
+                transform: translateX(-10px);
+                transition: all 0.5s;
+                color: #fff;
+            }
+            &:hover{
+                background-color: rgba($color: #000000, $alpha: 0.3);
+                .catalog-background-img{
+                    
+                }
+                .catalog-info-text{
+                    opacity: 1;
+                transform: translateX(20px);
+
+                }
+            }
+        }
+    }
+}

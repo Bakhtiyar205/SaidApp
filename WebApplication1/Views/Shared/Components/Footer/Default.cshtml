@@ -1,0 +1,88 @@
+﻿@model FooterVM
+@{
+    ViewData["Title"] = "Default";
+}
+
+<footer>
+        <div class="footer-transition">
+            <!-- Contact -->
+            <div class="footer-contact py-3">
+                <div class="container">
+                    <div class="footer-contact-header text-center d-flex justify-content-between">
+                        <h3 class="pb-3">Kontakt</h3>
+                        <p>Sualınız var?</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <p>+994-50-246-19-47</p>
+                            <p>info@tsmgroup.az</p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="phone-number">
+                                <input type="number" placeholder="phone">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <p>Təkliflərimiz haqqında daha ətraflı müzakirə aparmaq üçün Sizə uyğun bir zamanda görüş üçün vaxt 
+ayırsanız məmnun olarıq. Ümid varıq ki, xidmətlərimiz Sizi maraqlandıracaq və Sizinlə uzunmüddətli 
+və uğurlu əməkdaşlığa başlayacağıq.</p>
+    
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="checkbox-text">
+                                <input type="checkbox"> 
+                                &nbsp;
+                                <input type="email" style="border:0; outline:0;" placeholder="e-mail"/>
+                                Tezliklə sizinlə əlaqə saxlanilacaq
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6"></div>
+                        <div class="col-12 col-md-6">
+                            <button>Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Nav -->
+            <div class="footer-nav py-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <p>TSM az</p>
+                            <p>&copy;2022 TSM az</p>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <h5>Lorem</h5>
+                            <ul>
+                               @foreach (var category in Model.Categories)
+                            {
+                                <li><a href="#">@category.Name</a></li>
+                                
+                            }
+                            </ul>
+    
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <h5>Lorem</h5>
+                            <ul>
+                                <li><a href="#">TSM</a></li>
+                                <li><a href="#">TSM</a></li>
+                                <li><a href="#">TSM</a></li>
+                                <li><a href="#">TSM</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <h5>Lorem</h5>
+                            <ul>
+                                <li><a href="#">TSM</a></li>
+                                <li><a href="#">TSM</a></li>
+                                <li><a href="#">TSM</a></li>
+                                <li><a href="#">TSM</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>

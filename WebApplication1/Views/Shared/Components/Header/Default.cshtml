@@ -1,0 +1,78 @@
+﻿@model HeaderVM
+@{
+    ViewData["Title"] = "Default";
+}
+
+
+
+<!-- Header -->
+<header>
+    <div class="header-background py-4">
+        <div class="container-md d-none d-md-block">
+            <div class="header-transition">
+                <div class="row">
+                    <div class="col-4">
+                        <ul class="d-flex first-header-ul header-ul" id="primary-ul-nav">
+                            <li class="pe-3" id="catalog-nav">
+                                <a asp-controller="Catalog" asp-action="Index">
+                                    Kataloq <i class="fa-solid fa-chevron-down"></i>
+                                </a>
+                                <!-- Catalog Categories -->
+                                <ul class="d-none d-md-block" id="catalog-categories">
+                                    @foreach (var category in Model.Categories)
+                                    {
+                                        <li><a asp-controller="Catalog" asp-action="index" asp-route-id="@category.Id">@category.Name</a></li>
+                                    }
+                                </ul>
+                            </li>
+                            <li><a href="#">Kompaniya</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="header-info">
+                            <a asp-controller="Home" asp-action="Index">
+                                <img src="~/assets/img/WhatsApp Image 2022-08-25 at 6.52.15 PM.jpeg" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <ul class="d-flex second-header-ul header-ul text-end justify-content-end">
+                            <li class="pe-3"><a href="#">Haqqimizda</a></li>
+                            <li><a href="#">Magaza</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Navbar -->
+        <div class="d-md-none d-block">
+            <div class="row">
+                <div class="col-3">
+                    <nav class="navbar navbar-dark ">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarToggleExternalContent"
+                                    aria-controls="navbarToggleExternalContent" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-9">
+                    <div class="mobile-logo ps-5">
+                        <img src="./assets/img/WhatsApp Image 2022-08-25 at 6.52.15 PM.jpeg" alt="Logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="p-4">
+                <h5 class="text-white h4">Collapsed content</h5>
+                <span class="text-muted">Toggleable via the navbar brand.</span>
+            </div>
+        </div>
+    </div>
+</header>

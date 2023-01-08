@@ -1,0 +1,72 @@
+﻿@model ProductsVM
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="justify-content-between d-flex mt-3 justify-content-between" style="width:100%;">
+            <div>
+                <h1>Products</h1>
+            </div>
+            <div>
+                <a class="btn btn-success" asp-controller="product" asp-action="create">Create Products</a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Number
+                        </th>
+                        <th>
+                            Products Image
+                        </th>
+                        <th>
+                            Products Name
+                        </th>
+                        <th>
+                            Settings
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model.Products)
+                    {
+                        <tr>
+                            <td>
+                                @count
+                            </td>
+                            <td>
+                                <img src="~/assets/img/@product.Images?.FirstOrDefault().Image" alt="Alternative Image" style="width:100px; height:100px;border-radius:10%;" />
+
+                            </td>
+                            <td>
+                                @product.Name
+                            </td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" asp-action="Detail" asp-route-Id="@product.Id">
+                                    <i class="mdi mdi-account-box-outline"></i>
+                                </a>
+                                <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-Id="@product.Id">
+                                    <i class="mdi mdi-credit-card"></i>
+                                </a>
+                                <form method="post" asp-action="Delete" asp-route-Id="@product.Id" style="display:inline-block">
+                                    <button class="btn btn-danger btn-sm" type="submit">
+                                        <i class="mdi mdi-delete-forever"> </i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        count++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,344 @@
+﻿@model HomeVM
+<!-- First Part -->
+<div class="first-part p-md-5 p-3">
+    <div class="background-image">
+    </div>
+    <div class="first-part-text">
+        <div class="container-md">
+            <h1 class="py-md-3">Sizə, <span class="main-text-bold-color">TSM Group MMC</span>-nin təqdimat materiallarını təqdim edirik.</h1>
+            <p class="py-md-3">
+                Şirkətimiz Neft və Qaz, Dağ-Mədən, Sənaye və İnfrastruktur sektorlarında Təchizat Xidmətləri, Tikintinin
+                İdarə edilməsi, İstehsalat və Tikinti, Sazlama işləri və İstismara verilmə zamanı Yardım,Elektrik
+                avadanlıqlarının Texniki Təmir və Satışı Xidmətləri kimi ixtisaslaşdırılmış xidmət çeşidlərini təklif edir.
+            </p>
+            <a href="">Daha Ətraflı</a>
+        </div>
+    </div>
+</div>
+<!-- Secondary Part -->
+<div class="secondary-part p-5">
+    <div class="cards py-5">
+        <div class="container-md">
+            <div class="row">
+                <div class="col-md-3 col-12 my-1">
+                    <div class="card p-5">
+                        <div class="card-background-first"></div>
+                        <div class="card-text d-flex justify-content-center align-content-center text-center">
+                            Mümkün olan mallar və xidmətlər üçün ən rəqabətə davamlı qiymətlərin razılaşdırılması
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-12 my-1">
+                    <div class="card p-5">
+                        <div class="card-background-second"></div>
+                        <div class="card-text card-text-secondary d-flex justify-content-center align-content-center text-center">
+                            Sifariş olunan materialların Sifarişçiyə qısa müddətdə çatdırılmasına nəzarət
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-12 my-1">
+                    <div class="card p-5">
+                        <div class="card-background-third"></div>
+                        <div class="card-text  d-flex justify-content-center align-content-center text-center">
+                            Effektiv tədarük prosesindən istifadə edərək satıcı fərdi şəxs və təşkilatlarla danışıqların
+                            aparılması
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-12 my-1">
+                    <div class="card p-5">
+                        <div class="card-background-forth"></div>
+                        <div class="card-text card-text-secondary d-flex justify-content-center align-content-center text-center">
+                            Topdan satış, ixtisaslaşmış satış məntəqə və tədarükçülərlə əməkdaşlığın qurulması
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Secondary Text -->
+    <div class="secondary-texts py-3">
+        <div class="container">
+
+            <p>Şirkət həmçinin texniki xidmət və quraşdırma xidmətləri ilə də məşğuldu</p>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h3 style="font-weight: bold;"><span class="main-text-bold-color">“TSM Group MMC”</span>-nin fəaliyyət sahəsi: TƏMİR və SERVİS</h3>
+                </div>
+                <div class="col-12 col-md-6">
+                    <i class="fa-solid fa-check" style="color: green"></i> Elektrik avadanlıqlarının təmiri sahəsinə qaynaq aparatlarının təmiri və test olunması <br>
+                    <i class="fa-solid fa-check" style="color: green"></i>
+                    <span class="main-text-color">
+
+                        Istehsalatda istifadə olunan avadanlıqlarının mühavizə və qorunmaya görə olunan testlər <br>
+                    </span>
+                    <i class="fa-solid fa-check" style="color: green"></i> Elektrik Mühərriklərinin qorunmasına görə müəyyən vaxtaşırı olunan meger testləri
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Third Part -->
+<div class="third-part py-3">
+    <div class="container">
+        <div class="header-third">
+            <div class="sales pb-4">
+                <div class="d-flex justify-content-center">
+
+                    @for (int i = 0; i < Model.Categories.ToArray().Length; i++)
+                    {
+                        if (i == 0)
+                        {
+                            <div class="px-4 py-2 sale-component sale-component-active">
+                                @Model.Categories[i].Name
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="px-4 py-2 sale-component">@Model.Categories[i].Name</div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="third-cards">
+            <div class="row">
+                @foreach (var product in Model.Products.Take(4))
+                {
+                    <div class="col-12 col-md-3 pb-2 third-card">
+                        <a href="#">
+                            <div class="third-card-in text-center py-2">
+
+                                <img src="~/assets/img/@product.Images?.FirstOrDefault().Image"
+                                 alt="@product.Images?.FirstOrDefault().Image">
+                                <p>@product.Name</p>
+                            </div>
+                        </a>
+
+                    </div>
+                }
+
+            </div>
+            <div class="third-card-more text-center py-4">
+
+                <a asp-controller="Catalog" asp-action="index">Daha Ətraflı</a>
+            </div>
+        </div>
+
+        <!-- Second Third Cards -->
+        <div class="third-cards d-none">
+            <div class="row">
+                @foreach (var electricProduct in Model.ElectricProducts.Take(4))
+                {
+
+                    <div class="col-12 col-md-3 pb-2 third-card">
+                        <a href="#">
+                            <div class="third-card-in text-center py-2">
+
+                                <img src="~/assets/img/@electricProduct.Images?.FirstOrDefault().Image"
+                                 alt="@electricProduct.Images?.FirstOrDefault().Image">
+                                <p>@electricProduct.Name</p>
+                            </div>
+                        </a>
+                    </div>
+                }
+
+            </div>
+            <div class="third-card-more text-center py-4">
+
+                <a asp-controller="Catalog" asp-action="index">Daha Ətraflı</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Forth Part -->
+<div class="forth-part py-3">
+    <div class="container">
+        <h3 class="pb-3">Əməkdaş şirkətlərimiz:</h3>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="row">
+                    <div class="col-1">
+                        <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+                    </div>
+                    <div class="col-11">
+                        <h6>Salam</h6>
+                        <h6>
+                            Esstcon MMC
+                        </h6>
+                        <a href="#">Daha Etrafli</a>
+                    </div>
+                    <div class="col-1">
+                        <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+                    </div>
+                    <div class="col-11">
+                        <h6>lorem</h6>
+                        <h6>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolorum earum
+                            fugit quisquam quae neque at officiis dolorem rem beatae soluta dignissimos
+                            molestias non illo voluptate, facere maxime fugiat ipsum.
+                        </h6>
+                        <a href="#">Daha Etrafli</a>
+                    </div>
+                    <div class="col-1">
+                        <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+                    </div>
+                    <div class="col-11">
+                        <h6>lorem</h6>
+                        <h6>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolorum earum
+                            fugit quisquam quae neque at officiis dolorem rem beatae soluta dignissimos
+                            molestias non illo voluptate, facere maxime fugiat ipsum.
+                        </h6>
+                        <a href="#">Daha Etrafli</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="forth-part-img">
+                    <img src="./assets/img/engineering-online-mechanical-29apr20191600846052.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fifth Part -->
+<!-- <div class="fifth-part py-3">
+    <div class="container">
+        <h3>Lorem, ipsum.</h3>
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <div class="fifth-card text-center py-2">
+                    <img src="./assets/img/1-Бамбук_category_covers.jpg" alt="">
+                    <p>lorem</p>
+                    <p>Lorem, ipsum.</p>
+                    <p class="price">120manat</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
+                <div class="fifth-card text-center py-2">
+                    <img src="./assets/img/1-Бамбук_category_covers.jpg" alt="">
+                    <p>lorem</p>
+                    <p>Lorem, ipsum.</p>
+                    <p class="price">120manat</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
+                <div class="fifth-card text-center py-2">
+                    <img src="./assets/img/1-Бамбук_category_covers.jpg" alt="">
+                    <p>lorem</p>
+                    <p>Lorem, ipsum.</p>
+                    <p class="price">120manat</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
+                <div class="fifth-card text-center py-2">
+                    <img src="./assets/img/1-Бамбук_category_covers.jpg" alt="">
+                    <p>lorem</p>
+                    <p>Lorem, ipsum.</p>
+                    <p class="price">120manat</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- Sixth Part -->
+<div class="sixth-part py-3">
+    <div class="container">
+        <div class="transition">
+            <h3 class="pb-2">Lorem</h3>
+            <div class="row">
+                <div class="col-12">
+                    Təkliflərimiz haqqında daha ətraflı müzakirə aparmaq üçün Sizə uyğun bir zamanda görüş üçün vaxt
+                    ayırsanız məmnun olarıq. Ümid varıq ki, xidmətlərimiz Sizi maraqlandıracaq və Sizinlə uzunmüddətli
+                    və uğurlu əməkdaşlığa başlayacağıq. Mobil Nömrənizi qeyd edin biz sizinlə əlaqə saxlayarıq
+                </div>
+            </div>
+            <div class="py-3">
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6 col-12">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="input-field">
+                                    <input type="number" placeholder="phone">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="button-field">
+                                    <button>Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- Seventh Part -->
+<!-- <div class="seventh-part py-3">
+    <div class="container">
+        <h3>Lorem</h3>
+        <div class="sales">
+            <div class="d-flex justify-content-center">
+                <div class="px-4 py-2 sale-component sale-component-active">Sale 30%</div>
+                <div class="px-4 py-2 sale-component">Sale 30%</div>
+            </div>
+        </div>
+        <div class="seventh-cards pt-3">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <div class="seventh-card text-center py-2">
+                        <img src="./assets/img/1-Бамбук_category_covers.jpg" alt="">
+                        <p>lorem</p>
+                        <p>Lorem, ipsum.</p>
+                        <p class="price">120manat</p>
+                        <div class="sale-price">
+                            30%
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="seventh-card text-center py-2">
+                        <img src="./assets/img/1-Бамбук_category_covers.jpg" alt="">
+                        <p>lorem</p>
+                        <p>Lorem, ipsum.</p>
+                        <p class="price">120manat</p>
+                        <div class="sale-price">
+                            30%
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="seventh-card text-center py-2">
+                        <img src="./assets/img/1-Бамбук_category_covers.jpg" alt="">
+                        <p>lorem</p>
+                        <p>Lorem, ipsum.</p>
+                        <p class="price">120manat</p>
+                        <div class="sale-price">
+                            30%
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="seventh-card text-center py-2">
+                        <img src="./assets/img/1-Бамбук_category_covers.jpg" alt="">
+                        <p>lorem</p>
+                        <p>Lorem, ipsum.</p>
+                        <p class="price">120manat</p>
+                        <div class="sale-price">
+                            30%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="location-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12149.167528478527!2d49.8786338!3d40.4245353!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd74c2f0a9dff6624!2zRXVyb0hvbWUgKETJmXJuyZlnw7xsKQ!5e0!3m2!1saz!2s!4v1662659109553!5m2!1saz!2s" height="450" style="border:0; width:100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>

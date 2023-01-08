@@ -1,0 +1,54 @@
+﻿@model CatalogVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <!-- Nav Catalogs -->
+    <div class="catalogs-nav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-3">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-controller="Catalog" asp-action="Index" asp-route-id="">Hamısı <span class="sr-only">(current)</span></a>
+                    </li>
+                    @foreach (var category in Model.Categories)
+                    {
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-action="Index" asp-route-id="@category.Id">@category.Name <span class="sr-only">(current)</span></a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Catalogs -->
+    <div class="catalogs">
+        <div class="row">
+            @foreach (var product in Model.Products)
+            {
+                <div class="col-12 col-md-3 my-2">
+                    <a href="#">
+                        <div class="catalog">
+                            <div class="catalog-background-img">
+                                <img src="~/assets/img/@product.Images?.FirstOrDefault().Image" alt="" style="width:100%; height:100%">
+                            </div>
+                            <div class="catalog-info-text">
+                                <span>@product.Name</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+
+
+        </div>
+    </div>
+
+    <div>
+        <a asp-controller="home" asp-action="index" class="btn btn-warning">Ana Səhifəyə Qayıt</a>
+    </div>
+</div>
+<hr>
+
